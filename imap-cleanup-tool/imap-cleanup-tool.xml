@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>imap-cleanup-tool</Name>
+  <Repository>ghcr.io/imap-cleanup-tool/imap-cleanup-tool:latest</Repository>
+  <Registry>https://github.com/imap-cleanup-tool/imap-cleanup-tool</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/imap-cleanup-tool/imap-cleanup-tool/issues</Support>
+  <Overview>IMAP Cleanup Tool - Self-hosted email filter with web UI. Move, organize, and clean emails from any IMAP account.</Overview>
+  <Category>Tools: Utilities</Category>
+  <WebUI>http://[IP]:[PORT:8000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPO/main/imap-cleanup-tool.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/imap-cleanup-tool/imap-cleanup-tool/main/docs/icon.png</Icon>
+  <ExtraParams>--restart=always</ExtraParams>
+  <Description>IMAP Cleanup Tool with web UI for managing email filters. Move emails between folders, create rules by sender/subject/date, and automate inbox cleanup. Works with ANY IMAP provider (Gmail, Outlook, Yahoo, iCloud, mailbox.org, etc.).
+
+SECURITY RECOMMENDATIONS:
+- Access via SSH tunnel: ssh -L 8765:127.0.0.1:8000 user@unraid-ip
+- Or use Nginx Proxy Manager with Basic Auth
+- Use App Password or OAuth2 when available from your email provider
+
+CONFIGURATION:
+1. Install via Community Apps after adding TemplateURL
+2. Configure IMAP credentials for your provider
+3. Access web UI at http://unraid-ip:8000
+4. Create rules to move emails based on age, sender, subject, etc.
+5. Test rules manually before enabling automation
+
+COMMON IMAP PROVIDERS:
+- Gmail: imap.gmail.com:993 (SSL)
+- Outlook/Hotmail: outlook.office365.com:993 (SSL)
+- Yahoo: imap.mail.yahoo.com:993 (SSL)
+- iCloud: imap.mail.me.com:993 (SSL)
+- mailbox.org: imap.mailbox.org:993 (SSL)
+- ProtonMail: via Bridge: 127.0.0.1:1143 (SSL)</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Port>
+      <Host>8000</Host>
+      <Container>8000</Container>
+      <Protocol>tcp</Protocol>
+    </Port>
+  </Networking>
+  <Data>
+    <Volume>
+      <Host>/mnt/user/appdata/imap-cleanup-tool</Host>
+      <Container>/data</Container>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>IMAP_SERVER</Name>
+      <Value/>
+    </Variable>
+    <Variable>
+      <Name>IMAP_PORT</Name>
+      <Value>993</Value>
+    </Variable>
+    <Variable>
+      <Name>IMAP_SSL</Name>
+      <Value>true</Value>
+    </Variable>
+    <Variable>
+      <Name>IMAP_USER</Name>
+      <Value/>
+    </Variable>
+    <Variable>
+      <Name>IMAP_PASS</Name>
+      <Value/>
+    </Variable>
+    <Variable>
+      <Name>WEB_HOST</Name>
+      <Value>0.0.0.0</Value>
+    </Variable>
+    <Variable>
+      <Name>WEB_PORT</Name>
+      <Value>8000</Value>
+    </Variable>
+  </Environment>
+</Container>
