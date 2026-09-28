@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>imap-cleanup-tool</Name>
-  <Repository>ghcr.io/imap-cleanup-tool/imap-cleanup-tool:latest</Repository>
-  <Registry>https://github.com/imap-cleanup-tool/imap-cleanup-tool</Registry>
+  <Repository>ghcr.io/mrpickles007/imap-cleanup-tool:latest</Repository>
+  <Registry>https://github.com/mrpickles007/imap-cleanup-tool</Registry>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
-  <Support>https://github.com/imap-cleanup-tool/imap-cleanup-tool/issues</Support>
+  <Support>https://github.com/pirataze/unraid-templates/issues</Support>
   <Overview>IMAP Cleanup Tool - Self-hosted email filter with web UI. Move, organize, and clean emails from any IMAP account.</Overview>
   <Category>Tools: Utilities</Category>
   <WebUI>http://[IP]:[PORT:8000]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPO/main/imap-cleanup-tool.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/imap-cleanup-tool/imap-cleanup-tool/main/docs/icon.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/pirataze/unraid-templates/main/imap-cleanup-tool/imap-cleanup-tool.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/mrpickles007/imap-cleanup-tool/refs/heads/main/src/imap_cleanup_tool/assets/apple-touch-icon.png</Icon>
   <ExtraParams>--restart=always</ExtraParams>
-  <Description>IMAP Cleanup Tool with web UI for managing email filters. Move emails between folders, create rules by sender/subject/date, and automate inbox cleanup. Works with ANY IMAP provider (Gmail, Outlook, Yahoo, iCloud, mailbox.org, etc.).
+  <Description>Based on IMAP Cleanup Tool from mrpickle007 - IMAP Cleanup Tool with web UI for managing email filters. Move emails between folders, create rules by sender/subject/date, and automate inbox cleanup. Works with ANY IMAP provider (Gmail, Outlook, Yahoo, iCloud, mailbox.org, etc.).
 
 SECURITY RECOMMENDATIONS:
 - Access via SSH tunnel: ssh -L 8765:127.0.0.1:8000 user@unraid-ip
