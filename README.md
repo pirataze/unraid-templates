@@ -1,1 +1,2 @@
-# unraid-templates
+# UNRAID TEMPLATES
+Private templates for UNRAID
